@@ -21,7 +21,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $check = getimagesize($foto["tmp_name"]);
 
 if($check !== false) {
-    echo "el archivo es una imagen " . $check["mime"] . ".";
+    include "index.php";
 } else {
     echo "el archivo no es una imagen";
 }
@@ -37,7 +37,7 @@ if($imageFileType != "jpg" && $imageFileType != "png") {
     }
 
 move_uploaded_file($foto["tmp_name"], $target_file);
-echo "foto " .( $foto["name"]);
+
 
 
 
@@ -56,13 +56,13 @@ $conexion = mysqli_connect($host, $user, $pass, $db);
 $consulta = "INSERT INTO prueba_2 (nombre, apellido, rut ,fecha,nacionalidad, genero, ciudad ,foto ) 
             VALUES('$nombre', '$apellido', '$rut' , '$fecha', '$nacionalidad','$genero', '$ciudad','$target_file')";
 
-//3.- Ejecutar consulta
+/*3.- Ejecutar consulta
 if (mysqli_query($conexion, $consulta)) {
     echo "registro ingresado";
 }else{
     echo "error al ingresar";
 }
-
+*/ 
 
 
 ?>
