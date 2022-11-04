@@ -10,7 +10,7 @@ $genero = $_POST['genero'];
 $ciudad = $_POST['ciudad'];
 $foto = $_FILES['foto'];
 
-$nombre_archivo = "foto";
+$nombre_archivo = $nombre.$apellido;
 
 //revisar envio de imagen(foto)
 
