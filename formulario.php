@@ -68,9 +68,9 @@
           <td>
           <label for="genero"></label>
             <select id="select" name="genero">
-                <option>hombre</option>
-                <option>mujer</option>
-                <option>otros</option>
+                <option>Hombre</option>
+                <option>Mujer</option>
+                <option>Otros</option>
             </select>
           </td>
         </tr>

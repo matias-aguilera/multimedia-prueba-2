@@ -12,7 +12,7 @@ $foto = $_FILES['foto'];
 
 $nombre_archivo = "foto";
 
-//revisar envio de imagen(foto)-reparar codigo
+//revisar envio de imagen(foto)
 
 $target_dir = "img/";
 $target_file = $target_dir . $nombre_archivo . '.jpg';
