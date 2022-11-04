@@ -66,8 +66,12 @@
             genero:
           </td>
           <td>
-            <label for="genero"></label>
-            <input type="text" name="genero"  required  />
+          <label for="genero"></label>
+            <select id="select" name="genero">
+                <option>hombre</option>
+                <option>mujer</option>
+                <option>otros</option>
+            </select>
           </td>
         </tr>
         <tr>
