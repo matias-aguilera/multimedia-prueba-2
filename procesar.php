@@ -25,19 +25,27 @@ if($check !== false) {
 } else {
     echo "el archivo no es una imagen";
 }
-//reviso peso imagen
-if ($foto["size"] > 1000000) {
-    echo "la imagen pesa mas de 1mb";
-    $uploadOk = 0;
-}
-   //reviso la imagen
-if($imageFileType != "jpg" && $imageFileType != "png") {
-        echo "la imagen debe ser jpg o png";
-        $uploadOk = 0;
-    }
 
 move_uploaded_file($foto["tmp_name"], $target_file);
 
+
+
+$datos="Nombre:".$nombre." - Apellido:".$apellido." - Rut:".$rut." - Fecha de Nacimiento:".$fecha." - Nacionalidad:".$nacionalidad." - Genero:".$genero." - Ciudad:".$ciudad." - Foto:".$target_file ;
+
+require ("phpqrcode/qrlib.php");
+
+//$dir = 'temp/';
+$d = dir("temp/");
+
+$temp="temp/";
+
+$filename=$temp.$nombre.$apellido.'.png';
+$tamanio = 15;
+$level= 'M';
+$frameSize = 3;
+$contenido= $datos;
+
+QRcode::png($contenido, $filename, $level, $tamanio, $frameSize);
 
 
 
@@ -56,13 +64,13 @@ $conexion = mysqli_connect($host, $user, $pass, $db);
 $consulta = "INSERT INTO prueba_2 (nombre, apellido, rut ,fecha,nacionalidad, genero, ciudad ,foto ) 
             VALUES('$nombre', '$apellido', '$rut' , '$fecha', '$nacionalidad','$genero', '$ciudad','$target_file')";
 
-/*3.- Ejecutar consulta
+//3.- Ejecutar consulta
 if (mysqli_query($conexion, $consulta)) {
     echo "registro ingresado";
 }else{
     echo "error al ingresar";
 }
-*/ 
+ 
 
 
 ?>

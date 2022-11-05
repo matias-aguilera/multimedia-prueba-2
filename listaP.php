@@ -34,7 +34,55 @@
             </ul>
         </div>
         <div id="contenido2" class="container">
-            lista XD
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Rut</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $host = "localhost";
+                        $user ="root";
+                        $pass="";
+                        $db="bd_prueba_2";
+        
+                        $conexion= mysqli_connect($host, $user,$pass,$db);
+
+                        $sql = "Select * From prueba_2 ";
+                        $result = mysqli_query($conexion, $sql);
+                        if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                            
+                            <td>" . $row['nombre'] . "</td>
+                            <td>" . $row['apellido'] . "</td>
+                            <td>" . $row['rut'] . "</td>
+
+
+                            <td>
+
+                                <input class='btn btn-info' type='submit' name='ver' value='Ver'/>
+                                
+                                <a href='crearPdf.php? id_usuario=" . $row['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                
+
+                            </td>
+                        </tr>";
+                        }
+                        } else {
+                        echo "0 resultados";
+                        }
+                        
+
+                    ?>
+
+                </tbody>
+            </table>
             
         </div>
         <div id="footer" class="container">

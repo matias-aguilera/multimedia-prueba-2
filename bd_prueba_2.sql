@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2022 a las 23:53:59
+-- Tiempo de generación: 05-11-2022 a las 17:44:18
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -33,7 +33,7 @@ CREATE TABLE `prueba_2` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
-  `rut` varchar(9) NOT NULL,
+  `rut` varchar(10) NOT NULL,
   `fecha` date NOT NULL,
   `nacionalidad` varchar(25) NOT NULL,
   `genero` varchar(25) NOT NULL,
@@ -46,9 +46,11 @@ CREATE TABLE `prueba_2` (
 --
 
 INSERT INTO `prueba_2` (`id`, `nombre`, `apellido`, `rut`, `fecha`, `nacionalidad`, `genero`, `ciudad`, `foto`) VALUES
-(1, 'pedro', 'parquimetro', '111111111', '0000-00-00', 'chilena', 'hombre', 'santigo', 'img/foto.jpg'),
-(2, 'boris', 'ivanov', '222222222', '1999-11-01', 'chilena', 'hombre', 'santigo', 'img/foto.jpg'),
-(4, 'justavo', 'watson', '123456789', '1981-02-09', 'uruguaya', 'hombre', 'montevideo', 'img/foto.jpg');
+(6, 'Arturo', 'Rodriguez', '19485449-k', '2022-11-15', 'Chilena', 'Hombre', 'FASDFADAD', 'img/ArturoRodriguez.jpg'),
+(7, 'asdasd', 'asdasd', 'asdasdasda', '2022-11-19', 'Chilena', 'Hombre', 'asdsadadad', 'img/asdasdasdasd.jpg'),
+(8, '123123', 'asdasd', 'asdasd', '2022-11-16', 'Chilena', 'Hombre', 'asdasda', 'img/123123asdasd.jpg'),
+(9, '333asdasda', 'asdasdad', 'asdasdad', '2022-11-17', 'Chilena', 'Hombre', 'adsadasdad', 'img/333asdasdaasdasdad.jpg'),
+(10, '444asdasda', 'asdads', 'asdasdad', '0000-00-00', 'Chilena', 'Hombre', 'sdfsfsdfsf', 'img/444asdasdaasdads.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -68,7 +70,7 @@ ALTER TABLE `prueba_2`
 -- AUTO_INCREMENT de la tabla `prueba_2`
 --
 ALTER TABLE `prueba_2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Base de datos: `formulario`
 --
@@ -232,6 +234,32 @@ CREATE TABLE `ejercicio_1` (
 INSERT INTO `ejercicio_1` (`id`, `titulo`, `cuerpo`, `categoria`, `imagen`, `autor`) VALUES
 (32, 'imagen ', 'mmm', 'prueba', 'img/imagen.jpg', 'juancho');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `noticia`
+--
+
+CREATE TABLE `noticia` (
+  `id` int(100) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `noticia` varchar(1000) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
+  `foto` varchar(1000) NOT NULL,
+  `autor` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
 --
 -- Índices para tablas volcadas
 --
@@ -243,6 +271,12 @@ ALTER TABLE `ejercicio_1`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `noticia`
+--
+ALTER TABLE `noticia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -251,6 +285,12 @@ ALTER TABLE `ejercicio_1`
 --
 ALTER TABLE `ejercicio_1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `noticia`
+--
+ALTER TABLE `noticia`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- Base de datos: `phpmyadmin`
 --
@@ -507,7 +547,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2022-11-04 22:50:40', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2022-11-05 16:22:00', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
