@@ -75,7 +75,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                 <a href='Pdf.php? rut=" . $fila['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                <form action='Pdf.php' method='POST'>
+                                <input type='text' hidden name='rut' value='" . $fila['rut'] . "'/>
+                                <input class='btn btn-danger' type='submit' name='PDF' value='PDF'/>
+                                </form>
                                 
                                 </td>
                             </tr>";                    

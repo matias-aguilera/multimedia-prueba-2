@@ -66,12 +66,12 @@
                             <td>
 
                                 <form action='ver.php' method='POST'>
-                                    
                                     <input type='text' hidden name='rut' value='" . $row['rut'] . "'/>
-
                                     <input class='btn btn-info' type='submit' name='ver' value='Ver'/>
-                                
-                                    <a href='Pdf.php? name='rut' value='" . $row['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                </form>
+                                <form action='Pdf.php' method='POST'>
+                                    <input type='text' hidden name='rut' value='" . $row['rut'] . "'/>
+                                    <input class='btn btn-danger' type='submit' name='PDF' value='PDF'/>
                                 </form>
                             </td>
                         </tr>";

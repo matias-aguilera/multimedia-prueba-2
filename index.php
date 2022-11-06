@@ -118,7 +118,7 @@
                             </td>
                             <td>
                             <label for="foto"></label>
-                            <input type="file" name="foto"   required />
+                            <input type="file" name="foto" id="foto" accept="image/jpeg" required />
                             </td>
                         </tr>
 

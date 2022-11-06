@@ -10,23 +10,43 @@ $genero = $_POST['genero'];
 $ciudad = $_POST['ciudad'];
 $foto = $_FILES['foto'];
 
-$nombre_archivo = $nombre.$apellido;
+$nombre_archivo = $rut;
 
 //revisar envio de imagen(foto)
 
 $target_dir = "img/";
 $target_file = $target_dir . $nombre_archivo . '.jpg';
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+$nAncho=100;
+$nAlto=100;
+
+if($_FILES['foto']['error']=== UPLOAD_ERR_OK){
+    $imagen_original= $_FILES['foto']['tmp_name'];
+
+    $img_original= imagecreatefromjpeg($imagen_original);
+
+    $ancho_original= imagesx($img_original);
+    $alto_original= imagesy($img_original);
+
+    $tmp= imagecreatetruecolor($nAncho,$nAlto);
+    imagecopyresized($tmp, $img_original,0,0,0,0,$nAncho,$nAlto,$ancho_original,$alto_original);
+
+    imagejpeg($tmp,$target_file,100);
+
+}
+
+
+
 
 $check = getimagesize($foto["tmp_name"]);
 
 if($check !== false) {
     include "index.php";
-} else {
-    echo "el archivo no es una imagen";
+}else {
+    echo "imagen no es formato jpeg";
 }
 
-move_uploaded_file($foto["tmp_name"], $target_file);
+
 
 
 //datos QR
@@ -40,9 +60,9 @@ $d = dir("temp/");
 
 $temp="temp/";
 
-$filename=$temp.$nombre.$apellido.'.png';
-$tamanio = 15;
-$level= 'M';
+$filename=$temp.$rut.'.png';
+$tamanio = 5;
+$level= 'S';
 $frameSize = 3;
 $contenido= $datos;
 
