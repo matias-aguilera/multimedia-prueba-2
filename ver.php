@@ -75,7 +75,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                 <a href='crearPdf.php? id_usuario=" . $fila['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                 <a href='Pdf.php? rut=" . $fila['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
                                 
                                 </td>
                             </tr>";                    

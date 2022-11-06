@@ -71,7 +71,7 @@
 
                                     <input class='btn btn-info' type='submit' name='ver' value='Ver'/>
                                 
-                                <a href='crearPdf.php? id_usuario=" . $row['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                    <a href='Pdf.php? name='rut' value='" . $row['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
                                 </form>
                             </td>
                         </tr>";
