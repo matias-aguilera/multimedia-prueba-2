@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prueba-2</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<h1>ver </h1>
-      <table border="0" align="center">
-        <tr>
-          <td>
-          <?php
+    <div id="contenedor" class="container">
+        <div id="header" class="container">
+            <div class="mx-auto" style="width: 100px;">
+           <h1>Inicio</h1>
+            </div>
+        </div>
+        <div id="nav" class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.php">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ingresarP.php">Ingresar Persona</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listaP.php">Lista Personas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estadisticas.php">Estadisticas</a>
+                </li>
+            </ul>
+        </div>
+        <div id="contenido2" class="container">
+            <?php
 
-$host = "localhost";
-    $user ="root";
-    $pass="";
-    $db="bd_prueba_2";
+                $host = "localhost";
+                $user ="root";
+                $pass="";
+                $db="bd_prueba_2";
 
-    $conexion= mysqli_connect($host, $user,$pass,$db);
-   
+                $conexion= mysqli_connect($host, $user,$pass,$db);
 
-    $vista = "SELECT * FROM prueba_2";
-    $resultado = mysqli_query($conexion, $vista);
+                $rut = $_POST['rut']  ??NULL;
 
-        while($fila = mysqli_fetch_assoc($resultado)){
-         
-        echo "----  ----  ----  ----  ---<br>";
-         echo "nombre: " .$fila["nombre"] . "<br>";
-         echo "apellido: " .$fila["apellido"] . "<br>";
-         echo "rut: " .$fila["rut"] ."<br>";
-         echo "fecha de nacimiento: " .$fila["fecha"] ."<br>";
-         echo " nacionalidad: " .$fila["nacionalidad"] ."<br>";  
-         echo " genero: " .$fila["genero"] ."<br>";    
-         echo " ciudad: " .$fila["ciudad"] ."<br>";     
-         echo " foto: " .$fila["foto"] ."<br>"; 
-         echo "----  ----  ----  ----  ---<br>";
+                $vista = "SELECT * FROM prueba_2 where rut=$rut";
+                $resultado = mysqli_query($conexion, $vista);
 
-    }
+                    while($fila = mysqli_fetch_assoc($resultado)){
+                    
+                    echo "----  ----  ----  ----  ---<br>";
+                    echo "nombre: " .$fila["nombre"] . "<br>";
+                    echo "apellido: " .$fila["apellido"] . "<br>";
+                    echo "rut: " .$fila["rut"] ."<br>";
+                    echo "fecha de nacimiento: " .$fila["fecha"] ."<br>";
+                    echo " nacionalidad: " .$fila["nacionalidad"] ."<br>";  
+                    echo " genero: " .$fila["genero"] ."<br>";    
+                    echo " ciudad: " .$fila["ciudad"] ."<br>";     
+                    echo " foto: " .$fila["foto"] ."<br>"; 
+                    echo "----  ----  ----  ----  ---<br>";
+
+                }
 
 
-?>
-          </td>
-          <td>
-            
-      </table>
-    </form>
+            ?>    
 
+
+        </div>
+        <div id="footer" class="container">
+            <h3>TECNOLOGIA MULTIMEDIA  CIF:6459</h3> 
+            <h4>Entrega: 06/11/2022 </h4>
+            <h4>Integrantes: -Matias Aguilera - Arturo Rodriguez-</h4>
+            <br>
+        </div>
+        
+    </div>
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>

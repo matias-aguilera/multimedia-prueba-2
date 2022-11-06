@@ -46,6 +46,7 @@
                 </thead>
                 <tbody>
                     <?php
+                        
                         $host = "localhost";
                         $user ="root";
                         $pass="";
@@ -62,15 +63,16 @@
                             <td>" . $row['nombre'] . "</td>
                             <td>" . $row['apellido'] . "</td>
                             <td>" . $row['rut'] . "</td>
-
-
                             <td>
 
-                                <input class='btn btn-info' type='submit' name='ver' value='Ver'/>
+                                <form action='ver.php' method='POST'>
+                                    
+                                    <input type='text' hidden name='rut' value='" . $row['rut'] . "'/>
+
+                                    <input class='btn btn-info' type='submit' name='ver' value='Ver'/>
                                 
                                 <a href='crearPdf.php? id_usuario=" . $row['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
-                                
-
+                                </form>
                             </td>
                         </tr>";
                         }
@@ -96,4 +98,3 @@
     <script src="js/bootstrap.js"></script>
 </body>
 </html>
-

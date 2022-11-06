@@ -29,6 +29,7 @@ if($check !== false) {
 move_uploaded_file($foto["tmp_name"], $target_file);
 
 
+//datos QR
 
 $datos="Nombre:".$nombre." - Apellido:".$apellido." - Rut:".$rut." - Fecha de Nacimiento:".$fecha." - Nacionalidad:".$nacionalidad." - Genero:".$genero." - Ciudad:".$ciudad." - Foto:".$target_file ;
 
@@ -46,9 +47,6 @@ $frameSize = 3;
 $contenido= $datos;
 
 QRcode::png($contenido, $filename, $level, $tamanio, $frameSize);
-
-
-
 
 
 
@@ -71,6 +69,7 @@ if (mysqli_query($conexion, $consulta)) {
     echo "error al ingresar";
 }
  
+
 
 
 ?>
