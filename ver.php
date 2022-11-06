@@ -48,19 +48,37 @@
                 $vista = "SELECT * FROM prueba_2 where rut=$rut";
                 $resultado = mysqli_query($conexion, $vista);
 
-                    while($fila = mysqli_fetch_assoc($resultado)){
-                    
-                    echo "----  ----  ----  ----  ---<br>";
-                    echo "nombre: " .$fila["nombre"] . "<br>";
-                    echo "apellido: " .$fila["apellido"] . "<br>";
-                    echo "rut: " .$fila["rut"] ."<br>";
-                    echo "fecha de nacimiento: " .$fila["fecha"] ."<br>";
-                    echo " nacionalidad: " .$fila["nacionalidad"] ."<br>";  
-                    echo " genero: " .$fila["genero"] ."<br>";    
-                    echo " ciudad: " .$fila["ciudad"] ."<br>";     
-                    echo " foto: " .$fila["foto"] ."<br>"; 
-                    echo "----  ----  ----  ----  ---<br>";
+                while($fila = mysqli_fetch_assoc($resultado)){
+                    echo " 
+                            <tr>
+                                <td>
+                                    <div class='card mb-3' style='max-width: 540px;'>
+                                        <div class='row no-gutters'>
+                                            <div class='col-md-4'>
+                                                <br><img src='" . $fila['foto'] . "' class='card-img-top' alt='Card image' style='witdth:100px'>
+                                            </div>
+                                            <div class='col-md-8'>
+                                                <div class='card-body'>
+                                                    <h1><p class='card-text'>" . $fila['nombre']." ".$fila['apellido'] . "</h1></p>
+                                                    <p class='card-text'>Rut: " .$fila['rut'] . "</p>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class='col'>
+                                                <p class='card-text'>Fecha de Nacimiento: " . $fila['fecha'] . "<br></p>
+                                                <p class='card-text'>Nacionalidad: " . $fila['nacionalidad'] . "<br></p>
+                                                <p class='card-text'>Genero: " . $fila['genero'] . "<br></p>
+                                                <p class='card-text'>Ciudad: " . $fila['ciudad'] . "<br></p>
+                                            </div>
 
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                 <a href='crearPdf.php? id_usuario=" . $fila['rut'] . "' target='_self' class='btn btn-danger'>PDF</a>
+                                
+                                </td>
+                            </tr>";                    
                 }
 
 

@@ -58,7 +58,7 @@
                         </tr>
                         <tr>
                             <td>
-                            Rut:
+                            Rut (Sin -):
                             </td>
                             <td>
                             <label for="rut"></label>
