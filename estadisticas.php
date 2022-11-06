@@ -1,3 +1,6 @@
+<?php
+    include('consulta1.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,33 @@
     
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          
+          ['Pais', 'CantidadP'],
+          ['Chilenos', <?php echo $chilenos['total']?>],
+          ['Canadienses', <?php echo $canadienses['total']?>],
+          ['Uruguayos', <?php echo $uruguayos['total']?>]
+
+        ]);
+
+        var options = {
+          title: 'Cantidad de personas Registradas por Pais'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 </head>
 <body>
     <div id="contenedor" class="container">
@@ -34,7 +64,8 @@
             </ul>
         </div>
         <div id="contenido2" class="container">
-            graficos XD 
+            <div id="piechart" ></div>
+
         </div>
         <div id="footer" class="container">
             <h3>TECNOLOGIA MULTIMEDIA  CIF:6459</h3> 
@@ -44,6 +75,7 @@
         </div>
         
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
     <script src="js/bootstrap.js"></script>
 </body>
 </html>

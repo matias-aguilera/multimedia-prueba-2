@@ -59,6 +59,7 @@ ob_start();
                                                   $fechaActual = date('d/m/y h:i:s');
                                                   echo '$fechaActual';
                                             ?><br>
+                                            <img src='img/" . $fila['nacionalidad'] . ".png' class='card-img-top' alt='Card image'>    
 
                                             <br><img src='temp/" .$fila['rut'] . ".png' class='card-img-top' alt='Card image'> 
                                         </div>
